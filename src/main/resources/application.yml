@@ -1,0 +1,21 @@
+server:
+  port: 9016
+  
+spring:
+  application:
+    name: API-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+      - id: path_route
+        uri: https://example.org
+        predicates:
+        - Path=/red/{segment},/blue/{segment}
+
+eureka:
+  instance:
+    ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
