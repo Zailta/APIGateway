@@ -7,12 +7,24 @@ spring:
 
   cloud:
     gateway:
-      routes:
-      - id: path_route
-        uri: https://example.org
-        predicates:
-        - Path=/red/{segment},/blue/{segment}
-
+      mvc:
+        routes:
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+          - Path=/userService/**
+          
+        - id: HOTEL-SERVICE
+          uri: lb://HOTEL-SERVICE
+          predicates:
+          - Path=/hotelService/**
+          
+        - id: RATING-SERVICE
+          uri: lb://RATING-SERVICE
+          predicates:
+          - Path=/ratingService/**
+          
+        - 
 eureka:
   instance:
     ip-address: true
