@@ -23,8 +23,6 @@ spring:
           uri: lb://RATING-SERVICE
           predicates:
           - Path=/ratingService/**
-          
-        - 
 eureka:
   instance:
     ip-address: true
